@@ -2,7 +2,7 @@
 
 exports.isStar = false;
 
-var COMMANDS_PRIORITY = [ 'filterIn', 'select', 'sortBy', 'format', 'limit' ];
+var COMMANDS_PRIORITY = ['filterIn', 'select', 'sortBy', 'format', 'limit'];
 
 exports.query = function (collection) {
     var copyCollection = JSON.parse(collection);
@@ -68,8 +68,8 @@ exports.sortBy = function (property, order) {
 };
 
 exports.format = function (property, formatter) {
+
     return function format(collection) {
-    
         return collection.map(function (person) {
             if (!person.hasOwnProperty(property)) {
                 return person;
