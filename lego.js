@@ -5,7 +5,7 @@ exports.isStar = false;
 var COMMANDS_PRIORITY = ['filterIn', 'select', 'sortBy', 'format', 'limit'];
 
 exports.query = function (collection) {
-    var copyCollection = JSON.parse(collection);
+    var copyCollection = JSON.parse(JSON.stringify(collection));
     var commands = [].slice.call(arguments, 1);
     if (arguments.length === 1) {
         return copyCollection;
