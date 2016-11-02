@@ -2,7 +2,7 @@
 
 exports.isStar = false;
 
-var COMMANDS_PRIORITY = ['filterIn', 'select', 'sortBy', 'format', 'limit'];
+var COMMANDS_PRIORITY = ['filterIn', 'sortBy', 'select', 'format', 'limit'];
 
 exports.query = function (collection) {
     var copyCollection = JSON.parse(JSON.stringify(collection));
@@ -11,7 +11,7 @@ exports.query = function (collection) {
         return copyCollection;
     }
     commands = commands.sort(function (a, b) {
-        return COMMANDS_PRIORITY[a.name] - COMMANDS_PRIORITY[b.name];
+        return COMMANDS_PRIORITY.indexOf(a.name) - COMMANDS_PRIORITY.indexOf(b.name);
     });
     commands.forEach(function (command) {
         copyCollection = command(copyCollection);
